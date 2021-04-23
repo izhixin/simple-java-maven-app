@@ -6,6 +6,11 @@ pipeline {
         }
     }
     stages {
+        stage('Echo') {
+            steps {
+                sh "echo ${docker_image_version}"
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
